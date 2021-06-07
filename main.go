@@ -33,11 +33,12 @@ func init() {
 func main() {
 	r := gin.Default()
 
-	r.POST("/group/genKey/:user", route.GenerateNewMember)
+	r.POST("/group/genKey", route.GenerateNewMember)
 	r.GET("/group/file/:file", route.DownloadFile)
 	r.POST("/group/verify", route.VerifySign)
 	r.POST("/group/sign", route.Sign)
 	r.POST("/group/open", route.Open)
 
-	_ = r.Run(":8080") // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
+	_ = r.Run(":7002") // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
+	//_ = r.RunTLS(":7002","cert/xdlianrong.com.pem","cert/xdlianrong.com.key")
 }
